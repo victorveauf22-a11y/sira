@@ -1,0 +1,2525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIRA — Cocteles y Shishas | Barcelona</title>
+<meta name="description" content="Sira - Cocktail & Shisha Bar en Sarria-Sant Gervasi, Barcelona. Coctelería de autor y shisha premium en un ambiente sofisticado.">
+<link rel="icon" href="https://sirabcn.com/wp-content/uploads/2025/09/Asset-38.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   CSS CUSTOM PROPERTIES
+   ═══════════════════════════════════════════════ */
+:root {
+  --navy: #16293A;
+  --navy-deep: #0e1c28;
+  --navy-light: #1e3650;
+  --bronze: #C49871;
+  --bronze-light: #d4ad8a;
+  --bronze-dark: #a67d5a;
+  --bronze-glow: rgba(196, 152, 113, 0.15);
+  --white: #FFFFFF;
+  --cream: #f5f0eb;
+  --charcoal: #1E1E1E;
+  --blue-gray: #273A4B;
+  --text-muted: #8a9baa;
+  --text-light: rgba(255,255,255,0.7);
+  --overlay-dark: rgba(14, 28, 40, 0.85);
+  --overlay-medium: rgba(22, 41, 58, 0.75);
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-body: 'Jost', 'DM Sans', sans-serif;
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: 0.25s ease;
+}
+
+/* ═══════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--ff-body);
+  color: var(--white);
+  background: var(--navy-deep);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul { list-style: none; }
+
+::selection {
+  background: var(--bronze);
+  color: var(--navy);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--navy-deep); }
+::-webkit-scrollbar-thumb { background: var(--bronze-dark); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--bronze); }
+
+/* ═══════════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════════ */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
+.section-label {
+  font-family: var(--ff-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--bronze);
+}
+
+.section-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--bronze);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2.2rem;
+  background: var(--bronze);
+  color: var(--navy);
+  font-family: var(--ff-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--bronze);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  transform: translateX(-101%);
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-primary:hover::before { transform: translateX(0); }
+.btn-primary:hover { border-color: var(--white); }
+.btn-primary span { position: relative; z-index: 1; }
+.btn-primary svg { position: relative; z-index: 1; transition: transform 0.3s ease; }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: var(--bronze);
+  font-family: var(--ff-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid rgba(196, 152, 113, 0.4);
+  transition: var(--transition);
+}
+
+.btn-outline:hover {
+  background: var(--bronze);
+  color: var(--navy);
+  border-color: var(--bronze);
+}
+
+/* Fade-in animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ═══════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.2rem 0;
+  transition: all 0.5s ease;
+}
+
+.nav.scrolled {
+  background: rgba(14, 28, 40, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 0.8rem 0;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+
+.nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img {
+  height: 44px;
+  width: auto;
+  transition: var(--transition-fast);
+}
+
+.nav.scrolled .nav-logo img { height: 36px; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--bronze);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--bronze);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(196, 152, 113, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-left: 1rem;
+}
+
+.lang-btn {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  border-right: 1px solid rgba(196, 152, 113, 0.2);
+}
+
+.lang-btn:last-child { border-right: none; }
+
+.lang-btn.active,
+.lang-btn:hover {
+  background: var(--bronze);
+  color: var(--navy);
+}
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.nav-hamburger span {
+  width: 24px;
+  height: 1.5px;
+  background: var(--white);
+  transition: var(--transition-fast);
+  transform-origin: center;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 5px);
+}
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -5px);
+}
+
+/* Mobile menu */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--navy-deep);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.nav-mobile.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav-mobile a {
+  font-family: var(--ff-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--white);
+  transition: color var(--transition-fast);
+}
+
+.nav-mobile a:hover { color: var(--bronze); }
+
+.nav-mobile .lang-switcher-mobile {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.nav-mobile .lang-switcher-mobile .lang-btn {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  border: 1px solid rgba(196, 152, 113, 0.3);
+  border-right: 1px solid rgba(196, 152, 113, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .nav-links, .lang-switcher { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-mobile { display: flex; }
+}
+
+/* ═══════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0e1c28 0%, #1e3650 40%, #16293A 100%);
+  transform: scale(1.05);
+  animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.12); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 28, 40, 0.6) 0%,
+    rgba(14, 28, 40, 0.75) 50%,
+    rgba(14, 28, 40, 0.95) 100%
+  );
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.hero-logo {
+  width: 90px;
+  height: auto;
+  margin: 0 auto 2rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.3s ease forwards;
+}
+
+.hero-title {
+  font-family: var(--ff-display);
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.5s ease forwards;
+}
+
+.hero-subtitle {
+  font-family: var(--ff-body);
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.7s ease forwards;
+}
+
+.hero-tagline {
+  font-family: var(--ff-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.9s ease forwards;
+}
+
+.hero-cta {
+  opacity: 0;
+  animation: fadeUp 1s 1.1s ease forwards;
+}
+
+.hero-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--bronze));
+  margin: 0 auto 1rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0;
+  animation: fadeUp 1s 1.4s ease forwards;
+}
+
+.hero-scroll span {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--bronze), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ═══════════════════════════════════════════════
+   ABOUT
+   ═══════════════════════════════════════════════ */
+.about {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--navy);
+  position: relative;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.about-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 6s ease;
+}
+
+.about-image:hover img { transform: scale(1.06); }
+
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(196, 152, 113, 0.2);
+  pointer-events: none;
+}
+
+.about-image .corner-accent {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--bronze);
+  opacity: 0.4;
+}
+
+.about-image .corner-accent.tl { top: -8px; left: -8px; border-right: none; border-bottom: none; }
+.about-image .corner-accent.br { bottom: -8px; right: -8px; border-left: none; border-top: none; }
+
+.about-text p {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.about-pillars {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  counter-reset: pillar;
+}
+
+.pillar {
+  flex: 1;
+  padding: 2.5rem 2rem;
+  border-right: 1px solid rgba(196, 152, 113, 0.08);
+  position: relative;
+  counter-increment: pillar;
+  transition: var(--transition);
+}
+
+.pillar:last-child { border-right: none; }
+
+.pillar:hover { background: rgba(196, 152, 113, 0.04); }
+
+.pillar-number {
+  font-family: var(--ff-display);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(196, 152, 113, 0.12);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.pillar h3 {
+  font-family: var(--ff-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 0.8rem;
+}
+
+.pillar p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* Stats — inline with text */
+.stats-inline {
+  display: flex;
+  align-items: baseline;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(196, 152, 113, 0.1);
+}
+
+.stat-inline {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.stat-inline-number {
+  font-family: var(--ff-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  color: var(--bronze);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 400;
+  color: var(--bronze);
+  line-height: 1;
+}
+
+.stat-inline-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Image placeholder */
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--navy-light), var(--navy-deep));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--text-muted);
+  border: 1px dashed rgba(196, 152, 113, 0.2);
+}
+
+.img-placeholder svg { opacity: 0.3; }
+
+.img-placeholder span {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════
+   MENU
+   ═══════════════════════════════════════════════ */
+.menu-section {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--navy-deep);
+  position: relative;
+}
+
+.menu-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, var(--navy), var(--navy-deep));
+  pointer-events: none;
+}
+
+.menu-header {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 3rem;
+}
+
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(196, 152, 113, 0.25);
+  display: inline-flex;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-tab {
+  padding: 1rem 2.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  border-right: 1px solid rgba(196, 152, 113, 0.15);
+}
+
+.menu-tab:last-child { border-right: none; }
+
+.menu-tab.active,
+.menu-tab:hover {
+  background: var(--bronze);
+  color: var(--navy);
+}
+
+.menu-content {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-grid {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.menu-grid.active { display: grid; }
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 1.8rem;
+  background: linear-gradient(135deg, rgba(39, 58, 75, 0.25), rgba(22, 41, 58, 0.4));
+  border: 1px solid rgba(196, 152, 113, 0.08);
+  transition: var(--transition);
+}
+
+.menu-item:hover {
+  border-color: rgba(196, 152, 113, 0.2);
+  background: linear-gradient(135deg, rgba(39, 58, 75, 0.4), rgba(22, 41, 58, 0.55));
+}
+
+.menu-item-info h4 {
+  font-family: var(--ff-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: var(--white);
+}
+
+.menu-item-info p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.menu-item-price {
+  font-family: var(--ff-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--bronze);
+  white-space: nowrap;
+  margin-left: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════════
+   GALLERY
+   ═══════════════════════════════════════════════ */
+.gallery {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--navy);
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14, 28, 40, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-item:hover::after { opacity: 1; }
+
+.gallery-item .gallery-zoom {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  background: rgba(196, 152, 113, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.gallery-item:hover .gallery-zoom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-zoom svg { width: 16px; height: 16px; stroke: var(--navy); }
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(10, 18, 26, 0.95);
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.lightbox.open {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-img {
+  max-width: 85vw;
+  max-height: 85vh;
+  object-fit: contain;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  transition: color var(--transition-fast);
+}
+
+.lightbox-close:hover { color: var(--bronze); }
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  transition: all var(--transition-fast);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.lightbox-nav:hover {
+  background: var(--bronze);
+  color: var(--navy);
+  border-color: var(--bronze);
+}
+
+.lightbox-prev { left: 2rem; }
+.lightbox-next { right: 2rem; }
+
+/* ═══════════════════════════════════════════════
+   EVENTS
+   ═══════════════════════════════════════════════ */
+.events {
+  position: relative;
+  padding: clamp(6rem, 12vw, 10rem) 0;
+  overflow: hidden;
+}
+
+.events-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0e1c28 0%, #273A4B 50%, #16293A 100%);
+}
+
+.events-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14, 28, 40, 0.92), rgba(22, 41, 58, 0.88));
+}
+
+.events-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.events-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.event-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem;
+  border: 1px solid rgba(196, 152, 113, 0.12);
+}
+
+.event-feature-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--bronze-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--bronze);
+  font-size: 1.1rem;
+}
+
+.event-feature h4 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.event-feature p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.events-capacity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--bronze-glow);
+  border: 1px solid rgba(196, 152, 113, 0.2);
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  color: var(--bronze-light);
+}
+
+.events-capacity strong {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  color: var(--bronze);
+}
+
+/* ═══════════════════════════════════════════════
+   REVIEWS
+   ═══════════════════════════════════════════════ */
+.reviews {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--navy);
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.reviews-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.rating-number {
+  font-family: var(--ff-display);
+  font-size: 4rem;
+  font-weight: 400;
+  color: var(--bronze);
+  line-height: 1;
+}
+
+.rating-stars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stars {
+  color: var(--bronze);
+  font-size: 1.2rem;
+  letter-spacing: 0.15em;
+}
+
+.rating-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.review-card {
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, rgba(39, 58, 75, 0.25), rgba(22, 41, 58, 0.4));
+  border: 1px solid rgba(196, 152, 113, 0.08);
+  position: relative;
+  transition: var(--transition);
+}
+
+.review-card:hover {
+  border-color: rgba(196, 152, 113, 0.2);
+  transform: translateY(-4px);
+}
+
+.review-quote {
+  font-size: 2.5rem;
+  color: var(--bronze);
+  opacity: 0.3;
+  font-family: var(--ff-display);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.review-card p {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-light);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.review-author {
+  font-size: 0.85rem;
+  color: var(--bronze);
+  font-weight: 500;
+}
+
+.review-stars {
+  color: var(--bronze);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  margin-top: 0.4rem;
+}
+
+.reviews-secondary {
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid rgba(196, 152, 113, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.reviews-secondary-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.secondary-score {
+  font-family: var(--ff-display);
+  font-size: 2rem;
+  color: var(--bronze);
+  font-weight: 400;
+}
+
+.secondary-info {
+  text-align: left;
+}
+
+.secondary-info span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════
+   RESERVATIONS
+   ═══════════════════════════════════════════════ */
+.reservations {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--navy-deep);
+  position: relative;
+}
+
+.reservations::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, var(--navy), var(--navy-deep));
+  pointer-events: none;
+}
+
+.reservations-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  position: relative;
+  z-index: 1;
+}
+
+.reservation-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group.full { grid-column: span 2; }
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.9rem 1.2rem;
+  background: rgba(39, 58, 75, 0.3);
+  border: 1px solid rgba(196, 152, 113, 0.15);
+  color: var(--white);
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  transition: border-color var(--transition-fast);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--bronze);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23C49871' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.form-group select option {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.form-submit {
+  grid-column: span 2;
+  margin-top: 0.5rem;
+}
+
+.reservations-info {
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(39, 58, 75, 0.25), rgba(22, 41, 58, 0.4));
+  border: 1px solid rgba(196, 152, 113, 0.1);
+  align-self: start;
+}
+
+.reservations-info h3 {
+  font-family: var(--ff-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: var(--white);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(196, 152, 113, 0.08);
+}
+
+.info-item:last-child { border-bottom: none; }
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--bronze-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--bronze);
+  font-size: 1rem;
+}
+
+.info-item-text a {
+  color: var(--bronze-light);
+  transition: color var(--transition-fast);
+}
+
+.info-item-text a:hover { color: var(--bronze); }
+
+.info-item-text span {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.info-item-text p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/* ═══════════════════════════════════════════════
+   CONTACT & FOOTER
+   ═══════════════════════════════════════════════ */
+.contact {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--navy);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.contact-info h3 {
+  font-family: var(--ff-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+.contact-details {
+  margin-bottom: 2.5rem;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.contact-detail-icon {
+  color: var(--bronze);
+  margin-top: 0.15rem;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.contact-detail p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-weight: 300;
+}
+
+.contact-detail a {
+  color: var(--bronze-light);
+  transition: color var(--transition-fast);
+}
+
+.contact-detail a:hover { color: var(--bronze); }
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hours-table tr {
+  border-bottom: 1px solid rgba(196, 152, 113, 0.08);
+}
+
+.hours-table td {
+  padding: 0.7rem 0;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.hours-table td:first-child { color: var(--text-light); }
+.hours-table td:last-child { color: var(--bronze-light); text-align: right; }
+
+.transport {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  background: var(--bronze-glow);
+  border: 1px solid rgba(196, 152, 113, 0.12);
+}
+
+.transport p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-weight: 300;
+}
+
+.transport strong { color: var(--bronze-light); font-weight: 500; }
+
+.contact-map {
+  aspect-ratio: 1;
+  min-height: 400px;
+  overflow: hidden;
+  border: 1px solid rgba(196, 152, 113, 0.15);
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(0.6) brightness(0.8) contrast(1.1);
+  transition: filter 0.5s ease;
+}
+
+.contact-map:hover iframe { filter: grayscale(0) brightness(1) contrast(1); }
+
+/* Footer */
+.footer {
+  padding: 2.5rem 0;
+  background: var(--navy-deep);
+  border-top: 1px solid rgba(196, 152, 113, 0.1);
+}
+
+.footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(196, 152, 113, 0.2);
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.footer-social a:hover {
+  background: var(--bronze);
+  color: var(--navy);
+  border-color: var(--bronze);
+}
+
+.footer-social svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-image { max-height: 500px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .reservations-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .events-features { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+}
+
+@media (max-width: 768px) {
+  .about-pillars { flex-direction: column; }
+  .pillar { border-right: none; border-bottom: 1px solid rgba(196, 152, 113, 0.08); }
+  .pillar:last-child { border-bottom: none; }
+  .stats-inline { flex-direction: column; gap: 1.5rem; }
+  .menu-tabs { flex-direction: column; width: 100%; }
+  .menu-tab { border-right: none; border-bottom: 1px solid rgba(196, 152, 113, 0.15); }
+  .menu-tab:last-child { border-bottom: none; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item:nth-child(1) { grid-column: span 2; }
+  .reservation-form { grid-template-columns: 1fr; }
+  .form-group.full { grid-column: span 1; }
+  .form-submit { grid-column: span 1; }
+  .hero-title { letter-spacing: 0.2em; }
+  .reviews-secondary { flex-direction: column; text-align: center; }
+  .secondary-info { text-align: center; }
+  .footer .container { justify-content: center; text-align: center; }
+  .lightbox-prev { left: 0.5rem; }
+  .lightbox-next { right: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#hero" class="nav-logo">
+      <img src="https://sirabcn.com/wp-content/uploads/2025/09/Asset-39-2.png" alt="Sira Bar Logo">
+    </a>
+    <div class="nav-links">
+      <a href="#about" data-i18n="nav.about">Sobre</a>
+      <a href="#menu" data-i18n="nav.menu">Carta</a>
+      <a href="#gallery" data-i18n="nav.gallery">Galería</a>
+      <a href="#events" data-i18n="nav.events">Eventos</a>
+      <a href="#reviews" data-i18n="nav.reviews">Reseñas</a>
+      <a href="#reservations" data-i18n="nav.reservations">Reservas</a>
+      <a href="#contact" data-i18n="nav.contact">Contacto</a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ca">CA</button>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile" id="mobileMenu">
+  <a href="#about" data-i18n="nav.about">Sobre</a>
+  <a href="#menu" data-i18n="nav.menu">Carta</a>
+  <a href="#gallery" data-i18n="nav.gallery">Galería</a>
+  <a href="#events" data-i18n="nav.events">Eventos</a>
+  <a href="#reviews" data-i18n="nav.reviews">Reseñas</a>
+  <a href="#reservations" data-i18n="nav.reservations">Reservas</a>
+  <a href="#contact" data-i18n="nav.contact">Contacto</a>
+  <div class="lang-switcher-mobile">
+    <button class="lang-btn active" data-lang="es">ES</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ca">CA</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <img src="https://sirabcn.com/wp-content/uploads/2025/09/Asset-39-2.png" alt="Sira" class="hero-logo">
+    <div class="hero-divider"></div>
+    <h1 class="hero-title">SIRA</h1>
+    <p class="hero-subtitle">Cocteles y Shishas</p>
+    <p class="hero-tagline" data-i18n="hero.tagline">Más que un bar — Una experiencia</p>
+    <div class="hero-cta">
+      <a href="#reservations" class="btn-primary">
+        <span data-i18n="hero.cta">Reservar Mesa</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span data-i18n="hero.scroll">Descubre</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT
+     ═══════════════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="sira_insta_1.jpg" alt="Sira Cocktail Bar — Interior" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;aspect-ratio:3/4;">
+        <div class="corner-accent tl"></div>
+        <div class="corner-accent br"></div>
+      </div>
+      <div class="about-text">
+        <div class="section-label reveal" data-i18n="about.label">Nuestra Historia</div>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="about.title">Nuestro <em>Oasis</em> Urbano</h2>
+        <p class="reveal reveal-delay-2" data-i18n="about.p1">Escondido en el corazón de Sarria-Sant Gervasi, Sira es el secreto mejor guardado de Barcelona. Un refugio donde la coctelería de autor se encuentra con el arte de la shisha en un ambiente de sofisticación oriental.</p>
+        <p class="reveal reveal-delay-3" data-i18n="about.p2">Cuando cae el sol, nuestro espacio se transforma en un oasis urbano donde cada detalle está pensado para crear momentos inolvidables. Desde los cócteles artesanales de nuestros mixólogos expertos hasta las shishas preparadas por nuestros Hookah Masters.</p>
+      </div>
+    </div>
+
+    <div class="about-pillars reveal">
+      <div class="pillar">
+        <div class="pillar-number">01</div>
+        <h3 data-i18n="about.f1.title">Coctelería de Autor</h3>
+        <p data-i18n="about.f1.desc">Mixólogos expertos que transforman ingredientes premium en obras de arte líquidas.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">02</div>
+        <h3 data-i18n="about.f2.title">Shisha Premium</h3>
+        <p data-i18n="about.f2.desc">Hookah Masters dedicados a preparar cada cachimba con los mejores tabacos y sabores.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">03</div>
+        <h3 data-i18n="about.f3.title">Ambiente Único</h3>
+        <p data-i18n="about.f3.desc">Decoración contemporánea con toques orientales, luz tenue y sillones confortables.</p>
+      </div>
+    </div>
+
+    <div class="stats-inline reveal">
+      <div class="stat-inline">
+        <span class="stat-inline-number">4.9</span>
+        <span class="stat-inline-label" data-i18n="about.stat1">Google</span>
+      </div>
+      <div class="stat-inline">
+        <span class="stat-inline-number">224+</span>
+        <span class="stat-inline-label" data-i18n="about.stat2">Reseñas</span>
+      </div>
+      <div class="stat-inline">
+        <span class="stat-inline-number">300</span>
+        <span class="stat-inline-label" data-i18n="about.stat3">Capacidad</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     MENU
+     ═══════════════════════════════════════════════ -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <div class="menu-header">
+      <div class="section-label reveal" style="justify-content:center" data-i18n="menu.label">Sabores</div>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="menu.title">Nuestra <em>Carta</em></h2>
+    </div>
+    <div style="text-align:center;" class="reveal reveal-delay-2">
+      <div class="menu-tabs">
+        <button class="menu-tab active" data-tab="cocktails" data-i18n="menu.tab1">Cócteles</button>
+        <button class="menu-tab" data-tab="shisha" data-i18n="menu.tab2">Shisha</button>
+        <button class="menu-tab" data-tab="food" data-i18n="menu.tab3">Gastronomía</button>
+      </div>
+    </div>
+    <div class="menu-content reveal reveal-delay-3">
+      <!-- Cocktails -->
+      <div class="menu-grid active" id="tab-cocktails">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Signature Old Fashioned</h4>
+            <p data-i18n="menu.c1.desc">Bourbon, bitter artesanal, piel de naranja ahumada</p>
+          </div>
+          <div class="menu-item-price">€12</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Sira Sunset</h4>
+            <p data-i18n="menu.c2.desc">Ginebra mediterránea, flor de hibisco, limón, tónica premium</p>
+          </div>
+          <div class="menu-item-price">€12</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Mediterranean Negroni</h4>
+            <p data-i18n="menu.c3.desc">Gin infusionado con romero, Campari, vermut rojo artesanal</p>
+          </div>
+          <div class="menu-item-price">€12</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Passion Martini</h4>
+            <p data-i18n="menu.c4.desc">Vodka premium, fruta de la pasión, vainilla, prosecco</p>
+          </div>
+          <div class="menu-item-price">€12</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Barcelona Spritz</h4>
+            <p data-i18n="menu.c5.desc">Cava catalán, Aperol, naranja sanguina, soda</p>
+          </div>
+          <div class="menu-item-price">€11</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Smoky Paloma</h4>
+            <p data-i18n="menu.c6.desc">Mezcal, pomelo rosa, lima, sal ahumada, jalapeño</p>
+          </div>
+          <div class="menu-item-price">€12</div>
+        </div>
+      </div>
+
+      <!-- Shisha -->
+      <div class="menu-grid" id="tab-shisha">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Classic Mint</h4>
+            <p data-i18n="menu.s1.desc">Menta fresca, mezcla suave y refrescante</p>
+          </div>
+          <div class="menu-item-price">€15</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Double Apple</h4>
+            <p data-i18n="menu.s2.desc">El clásico árabe, dos variedades de manzana con anís</p>
+          </div>
+          <div class="menu-item-price">€15</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Blueberry Muffin</h4>
+            <p data-i18n="menu.s3.desc">Arándano con notas dulces de bollería artesanal</p>
+          </div>
+          <div class="menu-item-price">€16</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Tropical Mix</h4>
+            <p data-i18n="menu.s4.desc">Mango, piña y maracuyá — un viaje al trópico</p>
+          </div>
+          <div class="menu-item-price">€16</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Watermelon Ice</h4>
+            <p data-i18n="menu.s5.desc">Sandía helada, menta sutil, frescura pura</p>
+          </div>
+          <div class="menu-item-price">€15</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Custom Blend</h4>
+            <p data-i18n="menu.s6.desc">Tu mezcla personalizada por nuestros Hookah Masters</p>
+          </div>
+          <div class="menu-item-price">€18</div>
+        </div>
+      </div>
+
+      <!-- Food -->
+      <div class="menu-grid" id="tab-food">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.f1.name">Tabla de Quesos</h4>
+            <p data-i18n="menu.f1.desc">Selección de quesos artesanales con membrillo y frutos secos</p>
+          </div>
+          <div class="menu-item-price">€14</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.f2.name">Hummus Artesanal</h4>
+            <p data-i18n="menu.f2.desc">Hummus casero con pimentón, aceite de oliva virgen y pan pita</p>
+          </div>
+          <div class="menu-item-price">€10</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.f3.name">Bruschetta Mediterránea</h4>
+            <p data-i18n="menu.f3.desc">Pan cristal con tomate, albahaca, burrata y reducción de balsámico</p>
+          </div>
+          <div class="menu-item-price">€12</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.f4.name">Milk Phyllo Pie</h4>
+            <p data-i18n="menu.f4.desc">Pastel de hojaldre con crema de leche al estilo Tesalónica</p>
+          </div>
+          <div class="menu-item-price">€10</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.f5.name">Pecan Pie con Helado Kaimak</h4>
+            <p data-i18n="menu.f5.desc">Tarta de nuez pecana con helado de kaimak artesanal</p>
+          </div>
+          <div class="menu-item-price">€10</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.f6.name">Mousse de Yogur con Limón</h4>
+            <p data-i18n="menu.f6.desc">Mousse de yogur natural con coulis de limón y ralladura</p>
+          </div>
+          <div class="menu-item-price">€9</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     GALLERY
+     ═══════════════════════════════════════════════ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <div class="section-label reveal" style="justify-content:center" data-i18n="gallery.label">Imágenes</div>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="gallery.title"><em>Galería</em></h2>
+    </div>
+    <div class="gallery-grid reveal reveal-delay-2">
+      <div class="gallery-item" data-index="0">
+        <img src="sira_insta_1.jpg" alt="Sira Bar — Interior" loading="lazy">
+      </div>
+      <div class="gallery-item" data-index="1">
+        <img src="sira_insta_2.jpg" alt="Sira Bar — Cocktails" loading="lazy">
+      </div>
+      <div class="gallery-item" data-index="2">
+        <img src="sira_insta_3.webp" alt="Sira Bar — Shisha" loading="lazy">
+      </div>
+      <div class="gallery-item" data-index="3">
+        <img src="sira_insta_4.jpg" alt="Sira Bar — Ambiente" loading="lazy">
+      </div>
+      <div class="gallery-item" data-index="4">
+        <img src="sira_insta_5.jpg" alt="Sira Bar — Interior 2" loading="lazy">
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="sira_insta_6.jpg" alt="Sira Bar — Barra" loading="lazy">
+      </div>
+      <div class="gallery-item" data-index="6">
+        <img src="sira_insta_7.webp" alt="Sira Bar — Terraza" loading="lazy">
+      </div>
+      <div class="gallery-item" data-index="7">
+        <img src="sira_insta_8.webp" alt="Sira Bar — Eventos" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&#10005;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="Gallery">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     EVENTS
+     ═══════════════════════════════════════════════ -->
+<section class="events" id="events">
+  <div class="events-bg"></div>
+  <div class="events-overlay"></div>
+  <div class="container">
+    <div class="events-content">
+      <div class="section-label reveal" data-i18n="events.label">Celebra con Nosotros</div>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="events.title">Eventos <em>Privados</em></h2>
+      <p class="reveal reveal-delay-2" style="color:var(--text-light);font-weight:300;font-size:1.05rem;margin-bottom:1rem;" data-i18n="events.desc">Transforma tu celebración en una experiencia inolvidable. Nuestro espacio versátil se adapta a cualquier ocasión, desde reuniones íntimas hasta grandes fiestas.</p>
+
+      <div class="events-capacity reveal reveal-delay-2">
+        <span data-i18n="events.capacity">Capacidad hasta</span>
+        <strong>300</strong>
+        <span data-i18n="events.guests">invitados</span>
+      </div>
+
+      <div class="events-features reveal reveal-delay-3">
+        <div class="event-feature">
+          <div class="event-feature-icon">&#127867;</div>
+          <div>
+            <h4 data-i18n="events.feat1.title">Cocktail Masterclass</h4>
+            <p data-i18n="events.feat1.desc">Aprende el arte de la coctelería con nuestros mixólogos</p>
+          </div>
+        </div>
+        <div class="event-feature">
+          <div class="event-feature-icon">&#128168;</div>
+          <div>
+            <h4 data-i18n="events.feat2.title">Sesión Shisha Privada</h4>
+            <p data-i18n="events.feat2.desc">Experiencia exclusiva con nuestros Hookah Masters</p>
+          </div>
+        </div>
+        <div class="event-feature">
+          <div class="event-feature-icon">&#127926;</div>
+          <div>
+            <h4 data-i18n="events.feat3.title">DJ & Música</h4>
+            <p data-i18n="events.feat3.desc">Ambiente musical personalizado para tu evento</p>
+          </div>
+        </div>
+        <div class="event-feature">
+          <div class="event-feature-icon">&#127860;</div>
+          <div>
+            <h4 data-i18n="events.feat4.title">Catering Personalizado</h4>
+            <p data-i18n="events.feat4.desc">Menú a medida con nuestros mejores platos y cócteles</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="mailto:siracocktails@gmail.com?subject=Consulta%20Evento%20Privado" class="btn-primary reveal reveal-delay-4">
+        <span data-i18n="events.cta">Consultar Disponibilidad</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     REVIEWS
+     ═══════════════════════════════════════════════ -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-header">
+      <div class="section-label reveal" style="justify-content:center" data-i18n="reviews.label">Testimonios</div>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="reviews.title">Lo Que Dicen Nuestros <em>Clientes</em></h2>
+      <div class="reviews-rating reveal reveal-delay-2">
+        <div class="rating-number">4.9</div>
+        <div class="rating-stars">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rating-count" data-i18n="reviews.count">224+ reseñas en Google</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-quote">&ldquo;</div>
+        <p data-i18n="reviews.r1.text">Cocktails y shishas espectaculares, muy buen servicio y trato. Sin duda volveremos. El ambiente es increíble, te sientes como en otro mundo.</p>
+        <div class="review-author">— María G.</div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-quote">&ldquo;</div>
+        <p data-i18n="reviews.r2.text">El barman increíble, pedimos que nos sorprendiera y así lo hizo. Cada cóctel fue una obra de arte. Atención personalizada de principio a fin.</p>
+        <div class="review-author">— Carlos R.</div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-quote">&ldquo;</div>
+        <p data-i18n="reviews.r3.text">Un ambiente increíble, decoración elegante y la shisha de las mejores que he probado en Barcelona. Precios muy razonables para la calidad.</p>
+        <div class="review-author">— Laura M.</div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+    </div>
+
+    <div class="reviews-secondary-wrap reveal">
+      <div class="reviews-secondary">
+        <div class="secondary-score">9.8/10</div>
+        <div class="secondary-info">
+          <span data-i18n="reviews.secondary">361 reseñas verificadas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     RESERVATIONS
+     ═══════════════════════════════════════════════ -->
+<section class="reservations" id="reservations">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-label reveal" style="justify-content:center" data-i18n="reservations.label">Tu Mesa Te Espera</div>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="reservations.title">Reservar <em>Mesa</em></h2>
+    </div>
+    <div class="reservations-grid">
+      <form class="reservation-form reveal reveal-delay-2" id="reservationForm" novalidate>
+        <div class="form-group">
+          <label for="name" data-i18n="form.name">Nombre</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email" data-i18n="form.email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone" data-i18n="form.phone">Teléfono</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="guests" data-i18n="form.guests">Personas</label>
+          <select id="guests" name="guests">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10+">10+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date" data-i18n="form.date">Fecha</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time" data-i18n="form.time">Hora</label>
+          <input type="time" id="time" name="time" required>
+        </div>
+        <div class="form-group full">
+          <label for="message" data-i18n="form.message">Mensaje</label>
+          <textarea id="message" name="message" data-i18n-placeholder="form.messagePlaceholder" placeholder="Peticiones especiales, celebraciones..."></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-primary" id="reservationSubmit" style="width:100%;justify-content:center;">
+            <span id="reservationSubmitText" data-i18n="form.submit">Enviar Reserva</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div id="reservationStatus" style="display:none;grid-column:1/-1;padding:1rem;border-radius:4px;text-align:center;font-size:0.9rem;"></div>
+      </form>
+
+      <div class="reservations-info reveal reveal-delay-3">
+        <h3 data-i18n="reservations.directTitle">¿Prefieres contactarnos directamente?</h3>
+        <div class="info-item">
+          <div class="info-icon">&#9742;</div>
+          <div class="info-item-text">
+            <span data-i18n="reservations.phoneLabel">Llámanos</span>
+            <p><a href="tel:+34935389827">+34 935 38 98 27</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">&#128172;</div>
+          <div class="info-item-text">
+            <span>WhatsApp</span>
+            <p><a href="https://wa.me/34935389827" target="_blank" rel="noopener">+34 935 38 98 27</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">&#9993;</div>
+          <div class="info-item-text">
+            <span>Email</span>
+            <p><a href="mailto:siracocktails@gmail.com">siracocktails@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">&#128247;</div>
+          <div class="info-item-text">
+            <span>Instagram</span>
+            <p><a href="https://www.instagram.com/sira.bcn/" target="_blank" rel="noopener">@sira.bcn</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-label reveal" style="justify-content:center" data-i18n="contact.label">Encuéntranos</div>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="contact.title"><em>Contacto</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal reveal-delay-2">
+        <h3 data-i18n="contact.addressTitle">Dirección</h3>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">&#128205;</div>
+            <p>Passatge de Josep Llovera, 11<br>Sarria-Sant Gervasi, 08021 Barcelona</p>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">&#9742;</div>
+            <p><a href="tel:+34935389827">+34 935 38 98 27</a></p>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">&#9993;</div>
+            <p><a href="mailto:siracocktails@gmail.com">siracocktails@gmail.com</a></p>
+          </div>
+        </div>
+
+        <h3 data-i18n="contact.hoursTitle">Horario</h3>
+        <table class="hours-table">
+          <tr><td data-i18n="contact.mon">Lunes - Martes</td><td>17:00 – 02:00</td></tr>
+          <tr><td data-i18n="contact.wed">Miércoles</td><td>19:00 – 02:00</td></tr>
+          <tr><td data-i18n="contact.thu">Jueves</td><td>19:00 – 02:30</td></tr>
+          <tr><td data-i18n="contact.fri">Viernes</td><td>18:00 – 03:00</td></tr>
+          <tr><td data-i18n="contact.sat">Sábado</td><td>17:00 – 03:00</td></tr>
+          <tr><td data-i18n="contact.sun">Domingo</td><td>17:00 – 02:00</td></tr>
+        </table>
+
+        <div class="transport">
+          <p><strong data-i18n="contact.howTo">Cómo llegar:</strong> <span data-i18n="contact.transport">Metro L6/L7 Gràcia (7 min a pie) · Tram L1, L2, L3 Francesc Macià</span></p>
+        </div>
+      </div>
+
+      <div class="contact-map reveal reveal-delay-3">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.55!2d2.145!3d41.396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a28c5f5e1a7d%3A0x4e8e0f6e8e8e8e8e!2sPassatge%20de%20Josep%20Llovera%2C%2011%2C%2008021%20Barcelona!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 Sira — Cocteles y Shishas. Todos los derechos reservados.</p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/sira.bcn/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/sirabarcelona/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════
+   TRANSLATIONS
+   ═══════════════════════════════════════════════ */
+const T = {
+  es: {
+    'nav.about': 'Sobre', 'nav.menu': 'Carta', 'nav.gallery': 'Galería',
+    'nav.events': 'Eventos', 'nav.reviews': 'Reseñas', 'nav.reservations': 'Reservas',
+    'nav.contact': 'Contacto',
+    'hero.tagline': 'Más que un bar — Una experiencia',
+    'hero.cta': 'Reservar Mesa', 'hero.scroll': 'Descubre',
+    'about.label': 'Nuestra Historia', 'about.title': 'Nuestro <em>Oasis</em> Urbano',
+    'about.p1': 'Escondido en el corazón de Sarria-Sant Gervasi, Sira es el secreto mejor guardado de Barcelona. Un refugio donde la coctelería de autor se encuentra con el arte de la shisha en un ambiente de sofisticación oriental.',
+    'about.p2': 'Cuando cae el sol, nuestro espacio se transforma en un oasis urbano donde cada detalle está pensado para crear momentos inolvidables. Desde los cócteles artesanales de nuestros mixólogos expertos hasta las shishas preparadas por nuestros Hookah Masters.',
+    'about.f1.title': 'Coctelería de Autor', 'about.f1.desc': 'Mixólogos expertos que transforman ingredientes premium en obras de arte líquidas.',
+    'about.f2.title': 'Shisha Premium', 'about.f2.desc': 'Hookah Masters dedicados a preparar cada cachimba con los mejores tabacos y sabores.',
+    'about.f3.title': 'Ambiente Único', 'about.f3.desc': 'Decoración contemporánea con toques orientales, luz tenue y sillones confortables.',
+    'about.stat1': 'Valoración Google', 'about.stat2': 'Reseñas', 'about.stat3': 'Capacidad',
+    'menu.label': 'Sabores', 'menu.title': 'Nuestra <em>Carta</em>',
+    'menu.tab1': 'Cócteles', 'menu.tab2': 'Shisha', 'menu.tab3': 'Gastronomía',
+    'menu.c1.desc': 'Bourbon, bitter artesanal, piel de naranja ahumada',
+    'menu.c2.desc': 'Ginebra mediterránea, flor de hibisco, limón, tónica premium',
+    'menu.c3.desc': 'Gin infusionado con romero, Campari, vermut rojo artesanal',
+    'menu.c4.desc': 'Vodka premium, fruta de la pasión, vainilla, prosecco',
+    'menu.c5.desc': 'Cava catalán, Aperol, naranja sanguina, soda',
+    'menu.c6.desc': 'Mezcal, pomelo rosa, lima, sal ahumada, jalapeño',
+    'menu.s1.desc': 'Menta fresca, mezcla suave y refrescante',
+    'menu.s2.desc': 'El clásico árabe, dos variedades de manzana con anís',
+    'menu.s3.desc': 'Arándano con notas dulces de bollería artesanal',
+    'menu.s4.desc': 'Mango, piña y maracuyá — un viaje al trópico',
+    'menu.s5.desc': 'Sandía helada, menta sutil, frescura pura',
+    'menu.s6.desc': 'Tu mezcla personalizada por nuestros Hookah Masters',
+    'menu.f1.name': 'Tabla de Quesos', 'menu.f1.desc': 'Selección de quesos artesanales con membrillo y frutos secos',
+    'menu.f2.name': 'Hummus Artesanal', 'menu.f2.desc': 'Hummus casero con pimentón, aceite de oliva virgen y pan pita',
+    'menu.f3.name': 'Bruschetta Mediterránea', 'menu.f3.desc': 'Pan cristal con tomate, albahaca, burrata y reducción de balsámico',
+    'menu.f4.name': 'Milk Phyllo Pie', 'menu.f4.desc': 'Pastel de hojaldre con crema de leche al estilo Tesalónica',
+    'menu.f5.name': 'Pecan Pie con Helado Kaimak', 'menu.f5.desc': 'Tarta de nuez pecana con helado de kaimak artesanal',
+    'menu.f6.name': 'Mousse de Yogur con Limón', 'menu.f6.desc': 'Mousse de yogur natural con coulis de limón y ralladura',
+    'gallery.label': 'Imágenes', 'gallery.title': '<em>Galería</em>',
+    'events.label': 'Celebra con Nosotros', 'events.title': 'Eventos <em>Privados</em>',
+    'events.desc': 'Transforma tu celebración en una experiencia inolvidable. Nuestro espacio versátil se adapta a cualquier ocasión, desde reuniones íntimas hasta grandes fiestas.',
+    'events.capacity': 'Capacidad hasta', 'events.guests': 'invitados',
+    'events.feat1.title': 'Cocktail Masterclass', 'events.feat1.desc': 'Aprende el arte de la coctelería con nuestros mixólogos',
+    'events.feat2.title': 'Sesión Shisha Privada', 'events.feat2.desc': 'Experiencia exclusiva con nuestros Hookah Masters',
+    'events.feat3.title': 'DJ & Música', 'events.feat3.desc': 'Ambiente musical personalizado para tu evento',
+    'events.feat4.title': 'Catering Personalizado', 'events.feat4.desc': 'Menú a medida con nuestros mejores platos y cócteles',
+    'events.cta': 'Consultar Disponibilidad',
+    'reviews.label': 'Testimonios', 'reviews.title': 'Lo Que Dicen Nuestros <em>Clientes</em>',
+    'reviews.count': '224+ reseñas en Google',
+    'reviews.r1.text': 'Cocktails y shishas espectaculares, muy buen servicio y trato. Sin duda volveremos. El ambiente es increíble, te sientes como en otro mundo.',
+    'reviews.r2.text': 'El barman increíble, pedimos que nos sorprendiera y así lo hizo. Cada cóctel fue una obra de arte. Atención personalizada de principio a fin.',
+    'reviews.r3.text': 'Un ambiente increíble, decoración elegante y la shisha de las mejores que he probado en Barcelona. Precios muy razonables para la calidad.',
+    'reviews.secondary': '361 reseñas verificadas',
+    'reservations.label': 'Tu Mesa Te Espera', 'reservations.title': 'Reservar <em>Mesa</em>',
+    'reservations.directTitle': '¿Prefieres contactarnos directamente?',
+    'reservations.phoneLabel': 'Llámanos',
+    'form.name': 'Nombre', 'form.email': 'Email', 'form.phone': 'Teléfono',
+    'form.guests': 'Personas', 'form.date': 'Fecha', 'form.time': 'Hora',
+    'form.message': 'Mensaje', 'form.messagePlaceholder': 'Peticiones especiales, celebraciones...',
+    'form.submit': 'Enviar Reserva',
+    'contact.label': 'Encuéntranos', 'contact.title': '<em>Contacto</em>',
+    'contact.addressTitle': 'Dirección', 'contact.hoursTitle': 'Horario',
+    'contact.mon': 'Lunes - Martes', 'contact.wed': 'Miércoles', 'contact.thu': 'Jueves',
+    'contact.fri': 'Viernes', 'contact.sat': 'Sábado', 'contact.sun': 'Domingo',
+    'contact.howTo': 'Cómo llegar:', 'contact.transport': 'Metro L6/L7 Gràcia (7 min a pie) · Tram L1, L2, L3 Francesc Macià',
+    'footer.copy': '© 2026 Sira — Cocteles y Shishas. Todos los derechos reservados.',
+    'placeholder.photo': 'Foto del local'
+  },
+  en: {
+    'nav.about': 'About', 'nav.menu': 'Menu', 'nav.gallery': 'Gallery',
+    'nav.events': 'Events', 'nav.reviews': 'Reviews', 'nav.reservations': 'Reservations',
+    'nav.contact': 'Contact',
+    'hero.tagline': 'More Than a Bar — An Experience',
+    'hero.cta': 'Reserve a Table', 'hero.scroll': 'Discover',
+    'about.label': 'Our Story', 'about.title': 'Our Urban <em>Oasis</em>',
+    'about.p1': 'Hidden in the heart of Sarria-Sant Gervasi, Sira is Barcelona\'s best-kept secret. A refuge where craft cocktails meet the art of shisha in an atmosphere of oriental sophistication.',
+    'about.p2': 'When the sun sets, our space transforms into an urban oasis where every detail is designed to create unforgettable moments. From the artisanal cocktails of our expert mixologists to the shishas prepared by our Hookah Masters.',
+    'about.f1.title': 'Craft Cocktails', 'about.f1.desc': 'Expert mixologists who transform premium ingredients into liquid works of art.',
+    'about.f2.title': 'Premium Shisha', 'about.f2.desc': 'Dedicated Hookah Masters preparing each bowl with the finest tobaccos and flavors.',
+    'about.f3.title': 'Unique Atmosphere', 'about.f3.desc': 'Contemporary decor with oriental touches, dim lighting and comfortable armchairs.',
+    'about.stat1': 'Google Rating', 'about.stat2': 'Reviews', 'about.stat3': 'Capacity',
+    'menu.label': 'Flavors', 'menu.title': 'Our <em>Menu</em>',
+    'menu.tab1': 'Cocktails', 'menu.tab2': 'Shisha', 'menu.tab3': 'Food',
+    'menu.c1.desc': 'Bourbon, artisan bitters, smoked orange peel',
+    'menu.c2.desc': 'Mediterranean gin, hibiscus flower, lemon, premium tonic',
+    'menu.c3.desc': 'Rosemary-infused gin, Campari, artisan red vermouth',
+    'menu.c4.desc': 'Premium vodka, passion fruit, vanilla, prosecco',
+    'menu.c5.desc': 'Catalan cava, Aperol, blood orange, soda',
+    'menu.c6.desc': 'Mezcal, pink grapefruit, lime, smoked salt, jalapeño',
+    'menu.s1.desc': 'Fresh mint, smooth and refreshing blend',
+    'menu.s2.desc': 'The Arab classic, two apple varieties with anise',
+    'menu.s3.desc': 'Blueberry with sweet artisan pastry notes',
+    'menu.s4.desc': 'Mango, pineapple and passion fruit — a tropical journey',
+    'menu.s5.desc': 'Iced watermelon, subtle mint, pure freshness',
+    'menu.s6.desc': 'Your custom blend crafted by our Hookah Masters',
+    'menu.f1.name': 'Cheese Board', 'menu.f1.desc': 'Selection of artisan cheeses with quince and nuts',
+    'menu.f2.name': 'Artisan Hummus', 'menu.f2.desc': 'Homemade hummus with paprika, olive oil and pita bread',
+    'menu.f3.name': 'Mediterranean Bruschetta', 'menu.f3.desc': 'Crystal bread with tomato, basil, burrata and balsamic reduction',
+    'menu.f4.name': 'Milk Phyllo Pie', 'menu.f4.desc': 'Phyllo pastry with milk cream, Thessaloniki style',
+    'menu.f5.name': 'Pecan Pie with Kaimak Ice Cream', 'menu.f5.desc': 'Pecan pie with artisan kaimak ice cream',
+    'menu.f6.name': 'Yogurt Mousse with Lemon', 'menu.f6.desc': 'Natural yogurt mousse with lemon coulis and zest',
+    'gallery.label': 'Images', 'gallery.title': '<em>Gallery</em>',
+    'events.label': 'Celebrate With Us', 'events.title': 'Private <em>Events</em>',
+    'events.desc': 'Transform your celebration into an unforgettable experience. Our versatile space adapts to any occasion, from intimate gatherings to large parties.',
+    'events.capacity': 'Capacity up to', 'events.guests': 'guests',
+    'events.feat1.title': 'Cocktail Masterclass', 'events.feat1.desc': 'Learn the art of mixology with our expert bartenders',
+    'events.feat2.title': 'Private Shisha Session', 'events.feat2.desc': 'Exclusive experience with our Hookah Masters',
+    'events.feat3.title': 'DJ & Music', 'events.feat3.desc': 'Personalized musical atmosphere for your event',
+    'events.feat4.title': 'Custom Catering', 'events.feat4.desc': 'Tailored menu with our best dishes and cocktails',
+    'events.cta': 'Check Availability',
+    'reviews.label': 'Testimonials', 'reviews.title': 'What Our <em>Clients</em> Say',
+    'reviews.count': '224+ reviews on Google',
+    'reviews.r1.text': 'Spectacular cocktails and shishas, great service and care. We will definitely be back. The atmosphere is incredible, you feel like in another world.',
+    'reviews.r2.text': 'The bartender was incredible, we asked him to surprise us and he did. Every cocktail was a work of art. Personalized attention from start to finish.',
+    'reviews.r3.text': 'An incredible atmosphere, elegant decor and some of the best shisha I\'ve tried in Barcelona. Very reasonable prices for the quality.',
+    'reviews.secondary': '361 verified reviews',
+    'reservations.label': 'Your Table Awaits', 'reservations.title': 'Reserve a <em>Table</em>',
+    'reservations.directTitle': 'Prefer to contact us directly?',
+    'reservations.phoneLabel': 'Call Us',
+    'form.name': 'Name', 'form.email': 'Email', 'form.phone': 'Phone',
+    'form.guests': 'Guests', 'form.date': 'Date', 'form.time': 'Time',
+    'form.message': 'Message', 'form.messagePlaceholder': 'Special requests, celebrations...',
+    'form.submit': 'Send Reservation',
+    'contact.label': 'Find Us', 'contact.title': '<em>Contact</em>',
+    'contact.addressTitle': 'Address', 'contact.hoursTitle': 'Opening Hours',
+    'contact.mon': 'Monday - Tuesday', 'contact.wed': 'Wednesday', 'contact.thu': 'Thursday',
+    'contact.fri': 'Friday', 'contact.sat': 'Saturday', 'contact.sun': 'Sunday',
+    'contact.howTo': 'How to get here:', 'contact.transport': 'Metro L6/L7 Gràcia (7 min walk) · Tram L1, L2, L3 Francesc Macià',
+    'footer.copy': '© 2026 Sira — Cocteles y Shishas. All rights reserved.',
+    'placeholder.photo': 'Venue photo'
+  },
+  ca: {
+    'nav.about': 'Sobre', 'nav.menu': 'Carta', 'nav.gallery': 'Galeria',
+    'nav.events': 'Esdeveniments', 'nav.reviews': 'Ressenyes', 'nav.reservations': 'Reserves',
+    'nav.contact': 'Contacte',
+    'hero.tagline': 'Més que un bar — Una experiència',
+    'hero.cta': 'Reservar Taula', 'hero.scroll': 'Descobreix',
+    'about.label': 'La Nostra Història', 'about.title': 'El Nostre <em>Oasi</em> Urbà',
+    'about.p1': 'Amagat al cor de Sarrià-Sant Gervasi, Sira és el secret més ben guardat de Barcelona. Un refugi on la cocteleria d\'autor es troba amb l\'art de la shisha en un ambient de sofisticació oriental.',
+    'about.p2': 'Quan cau el sol, el nostre espai es transforma en un oasi urbà on cada detall està pensat per crear moments inoblidables. Des dels còctels artesanals dels nostres mixòlegs experts fins a les shishes preparades pels nostres Hookah Masters.',
+    'about.f1.title': 'Cocteleria d\'Autor', 'about.f1.desc': 'Mixòlegs experts que transformen ingredients premium en obres d\'art líquides.',
+    'about.f2.title': 'Shisha Premium', 'about.f2.desc': 'Hookah Masters dedicats a preparar cada catximba amb els millors tabacs i sabors.',
+    'about.f3.title': 'Ambient Únic', 'about.f3.desc': 'Decoració contemporània amb tocs orientals, llum tènue i butaques confortables.',
+    'about.stat1': 'Valoració Google', 'about.stat2': 'Ressenyes', 'about.stat3': 'Capacitat',
+    'menu.label': 'Sabors', 'menu.title': 'La Nostra <em>Carta</em>',
+    'menu.tab1': 'Còctels', 'menu.tab2': 'Shisha', 'menu.tab3': 'Gastronomia',
+    'menu.c1.desc': 'Bourbon, bitter artesanal, pell de taronja fumada',
+    'menu.c2.desc': 'Ginebra mediterrània, flor d\'hibisc, llimona, tònica premium',
+    'menu.c3.desc': 'Gin infusionat amb romaní, Campari, vermut roig artesanal',
+    'menu.c4.desc': 'Vodka premium, fruita de la passió, vainilla, prosecco',
+    'menu.c5.desc': 'Cava català, Aperol, taronja sanguina, soda',
+    'menu.c6.desc': 'Mezcal, aranja rosa, llima, sal fumada, jalapeño',
+    'menu.s1.desc': 'Menta fresca, barreja suau i refrescant',
+    'menu.s2.desc': 'El clàssic àrab, dues varietats de poma amb anís',
+    'menu.s3.desc': 'Nabiu amb notes dolces de brioixeria artesanal',
+    'menu.s4.desc': 'Mango, pinya i maracujà — un viatge al tròpic',
+    'menu.s5.desc': 'Síndria gelada, menta subtil, frescor pura',
+    'menu.s6.desc': 'La teva barreja personalitzada pels nostres Hookah Masters',
+    'menu.f1.name': 'Taula de Formatges', 'menu.f1.desc': 'Selecció de formatges artesanals amb codony i fruits secs',
+    'menu.f2.name': 'Hummus Artesanal', 'menu.f2.desc': 'Hummus casolà amb pebre vermell, oli d\'oliva verge i pa de pita',
+    'menu.f3.name': 'Bruschetta Mediterrània', 'menu.f3.desc': 'Pa de cristall amb tomàquet, alfàbrega, burrata i reducció de balsàmic',
+    'menu.f4.name': 'Milk Phyllo Pie', 'menu.f4.desc': 'Pastís de pasta filo amb crema de llet a l\'estil Tessalònica',
+    'menu.f5.name': 'Pecan Pie amb Gelat Kaimak', 'menu.f5.desc': 'Pastís de nous pecanes amb gelat de kaimak artesanal',
+    'menu.f6.name': 'Mousse de Iogurt amb Llimona', 'menu.f6.desc': 'Mousse de iogurt natural amb coulis de llimona i ratlladura',
+    'gallery.label': 'Imatges', 'gallery.title': '<em>Galeria</em>',
+    'events.label': 'Celebra amb Nosaltres', 'events.title': 'Esdeveniments <em>Privats</em>',
+    'events.desc': 'Transforma la teva celebració en una experiència inoblidable. El nostre espai versàtil s\'adapta a qualsevol ocasió, des de reunions íntimes fins a grans festes.',
+    'events.capacity': 'Capacitat fins a', 'events.guests': 'convidats',
+    'events.feat1.title': 'Cocktail Masterclass', 'events.feat1.desc': 'Aprèn l\'art de la cocteleria amb els nostres mixòlegs',
+    'events.feat2.title': 'Sessió Shisha Privada', 'events.feat2.desc': 'Experiència exclusiva amb els nostres Hookah Masters',
+    'events.feat3.title': 'DJ i Música', 'events.feat3.desc': 'Ambient musical personalitzat per al teu event',
+    'events.feat4.title': 'Càtering Personalitzat', 'events.feat4.desc': 'Menú a mida amb els nostres millors plats i còctels',
+    'events.cta': 'Consultar Disponibilitat',
+    'reviews.label': 'Testimonis', 'reviews.title': 'El Que Diuen els Nostres <em>Clients</em>',
+    'reviews.count': '224+ ressenyes a Google',
+    'reviews.r1.text': 'Còctels i shishes espectaculars, molt bon servei i tracte. Sens dubte tornarem. L\'ambient és increïble, et sents com en un altre món.',
+    'reviews.r2.text': 'El barman increïble, vam demanar que ens sorprengués i així ho va fer. Cada còctel va ser una obra d\'art. Atenció personalitzada de principi a fi.',
+    'reviews.r3.text': 'Un ambient increïble, decoració elegant i la shisha de les millors que he provat a Barcelona. Preus molt raonables per la qualitat.',
+    'reviews.secondary': '361 ressenyes verificades',
+    'reservations.label': 'La Teva Taula T\'Espera', 'reservations.title': 'Reservar <em>Taula</em>',
+    'reservations.directTitle': 'Prefereixes contactar-nos directament?',
+    'reservations.phoneLabel': 'Truca\'ns',
+    'form.name': 'Nom', 'form.email': 'Email', 'form.phone': 'Telèfon',
+    'form.guests': 'Persones', 'form.date': 'Data', 'form.time': 'Hora',
+    'form.message': 'Missatge', 'form.messagePlaceholder': 'Peticions especials, celebracions...',
+    'form.submit': 'Enviar Reserva',
+    'contact.label': 'Troba\'ns', 'contact.title': '<em>Contacte</em>',
+    'contact.addressTitle': 'Adreça', 'contact.hoursTitle': 'Horari',
+    'contact.mon': 'Dilluns - Dimarts', 'contact.wed': 'Dimecres', 'contact.thu': 'Dijous',
+    'contact.fri': 'Divendres', 'contact.sat': 'Dissabte', 'contact.sun': 'Diumenge',
+    'contact.howTo': 'Com arribar-hi:', 'contact.transport': 'Metro L6/L7 Gràcia (7 min a peu) · Tram L1, L2, L3 Francesc Macià',
+    'footer.copy': '© 2026 Sira — Cocteles y Shishas. Tots els drets reservats.',
+    'placeholder.photo': 'Foto del local'
+  }
+};
+
+/* ═══════════════════════════════════════════════
+   i18n ENGINE
+   ═══════════════════════════════════════════════ */
+let currentLang = localStorage.getItem('sira-lang') || 'es';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('sira-lang', lang);
+  document.documentElement.lang = lang === 'ca' ? 'ca' : lang === 'en' ? 'en' : 'es';
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[lang] && T[lang][key]) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        // skip — handled by placeholder
+      } else {
+        el.innerHTML = T[lang][key];
+      }
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (T[lang] && T[lang][key]) {
+      el.placeholder = T[lang][key];
+    }
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+}
+
+/* ═══════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════ */
+const nav = document.getElementById('nav');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+// Scroll effect
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 80);
+  updateActiveNav();
+});
+
+// Hamburger
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+// Close mobile menu on link click
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// Active nav highlighting
+function updateActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const scrollPos = window.scrollY + 150;
+
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.id;
+
+    if (scrollPos >= top && scrollPos < top + height) {
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}
+
+// Language switcher
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+});
+
+/* ═══════════════════════════════════════════════
+   MENU TABS
+   ═══════════════════════════════════════════════ */
+document.querySelectorAll('.menu-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.menu-grid').forEach(g => g.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+/* ═══════════════════════════════════════════════
+   GALLERY LIGHTBOX
+   ═══════════════════════════════════════════════ */
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+let currentIndex = 0;
+
+// Collect image srcs — supports both <img> and placeholder divs
+const gallerySrcs = Array.from(galleryItems).map(item => {
+  const img = item.querySelector('img');
+  return img ? img.src : null;
+}).filter(Boolean);
+
+function openLightbox(index) {
+  if (!gallerySrcs.length) return; // No real images yet
+  currentIndex = index;
+  if (!gallerySrcs[index]) return;
+  lightboxImg.src = gallerySrcs[index];
+  lightbox.style.display = 'flex';
+  requestAnimationFrame(() => lightbox.classList.add('open'));
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  setTimeout(() => { lightbox.style.display = 'none'; }, 400);
+  document.body.style.overflow = '';
+}
+
+galleryItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const img = item.querySelector('img');
+    if (img) openLightbox(gallerySrcs.indexOf(img.src));
+  });
+});
+
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+document.getElementById('lightboxPrev').addEventListener('click', () => {
+  if (!gallerySrcs.length) return;
+  currentIndex = (currentIndex - 1 + gallerySrcs.length) % gallerySrcs.length;
+  lightboxImg.src = gallerySrcs[currentIndex];
+});
+document.getElementById('lightboxNext').addEventListener('click', () => {
+  if (!gallerySrcs.length) return;
+  currentIndex = (currentIndex + 1) % gallerySrcs.length;
+  lightboxImg.src = gallerySrcs[currentIndex];
+});
+
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') document.getElementById('lightboxPrev').click();
+  if (e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
+});
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════════════════ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ═══════════════════════════════════════════════
+   RESERVATION FORM
+   ═══════════════════════════════════════════════ */
+document.getElementById('reservationForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const name    = document.getElementById('name').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const phone   = document.getElementById('phone').value.trim();
+  const guests  = document.getElementById('guests').value;
+  const date    = document.getElementById('date').value;
+  const time    = document.getElementById('time').value;
+  const message = document.getElementById('message').value.trim();
+
+  if (!date || !time || !name || !email) return;
+
+  // Build Google Calendar event link for bar owner
+  const startDate = new Date(date + 'T' + time + ':00');
+  const endDate   = new Date(startDate.getTime() + 2 * 60 * 60 * 1000);
+  const gcalFmt   = d => d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const gcalText  = encodeURIComponent('Reserva Sira — ' + name + ' (' + guests + ' pax)');
+  const gcalDates = gcalFmt(startDate) + '/' + gcalFmt(endDate);
+  const gcalLoc   = encodeURIComponent('Passatge de Josep Llovera, 11, 08021 Barcelona');
+  const gcalDetails = encodeURIComponent(
+    'Nombre: ' + name + '\nEmail: ' + email + '\nTeléfono: ' + phone +
+    '\nPersonas: ' + guests + (message ? '\nNotas: ' + message : '')
+  );
+  const gcalLink = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+    '&text=' + gcalText + '&dates=' + gcalDates +
+    '&details=' + gcalDetails + '&location=' + gcalLoc;
+
+  // UI: loading state
+  const btn = document.getElementById('reservationSubmit');
+  const btnText = document.getElementById('reservationSubmitText');
+  const status = document.getElementById('reservationStatus');
+  btn.disabled = true;
+  btnText.textContent = '...';
+
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/victor.veauf22@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Nueva Reserva — ' + name + ' — ' + date + ' ' + time,
+        _template: 'table',
+        Nombre: name,
+        Email: email,
+        Teléfono: phone || '—',
+        Personas: guests,
+        Fecha: date,
+        Hora: time,
+        Mensaje: message || '—',
+        'Añadir a Google Calendar': gcalLink
+      })
+    });
+    const json = await res.json();
+    if (json.success === 'true' || json.success === true) {
+      status.style.display = 'block';
+      status.style.background = 'rgba(196,152,113,0.15)';
+      status.style.border = '1px solid var(--bronze)';
+      status.style.color = 'var(--bronze)';
+      status.textContent = '¡Reserva enviada! Te confirmaremos en breve.';
+      e.target.reset();
+    } else {
+      throw new Error('unexpected response');
+    }
+  } catch(err) {
+    status.style.display = 'block';
+    status.style.background = 'rgba(255,80,80,0.1)';
+    status.style.border = '1px solid #e05555';
+    status.style.color = '#e08888';
+    status.textContent = 'Error al enviar. Contáctanos por WhatsApp o teléfono.';
+  } finally {
+    btn.disabled = false;
+    btnText.textContent = 'Enviar Reserva';
+  }
+});
+
+/* ═══════════════════════════════════════════════
+   INIT
+   ═══════════════════════════════════════════════ */
+setLanguage(currentLang);
+</script>
+</body>
+</html>
